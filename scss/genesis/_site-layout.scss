@@ -1,0 +1,19 @@
+@import "../../../foundation/scss/foundation";
+
+.site-container > * {
+    & > .wrap {
+        @include grid-row();
+
+        .wrap {
+            @include grid-row(nest);
+        }
+    }
+
+    .wrap > * {
+        @include grid-column();
+    }
+
+    .full-width-content &.site-inner > .wrap {
+        @include grid-row(nest-collapse);
+    }
+}
