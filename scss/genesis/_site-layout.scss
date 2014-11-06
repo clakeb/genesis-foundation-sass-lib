@@ -1,8 +1,37 @@
+$fluid-static-grid: true !default;
+
 @import "../../../foundation/scss/foundation";
 
 .site-container > * {
     & > .wrap {
         @include grid-row();
+
+        @if $fluid-static-grid {
+            @media #{$small-up} {
+                max-width: none;
+                margin: 0 auto;
+            }
+
+            @media #{$medium-up} {
+                max-width: lower-bound($medium-range);
+                margin: 0 auto;
+            }
+
+            @media #{$large-up} {
+                max-width: lower-bound($large-range);
+                margin: 0 auto;
+            }
+
+            @media #{$xlarge-up} {
+                max-width: lower-bound($xlarge-range);
+                margin: 0 auto;
+            }
+
+            @media #{$xxlarge-up} {
+                max-width: lower-bound($xxlarge-range);
+                margin: 0 auto;
+            }
+        }
 
         .wrap {
             @include grid-row(nest);
@@ -10,10 +39,116 @@
     }
 
     .wrap > * {
-        @include grid-column();
+        @include grid-column($total-columns);
+    }
+}
+
+.sidebar-content,
+.content-sidebar {
+    .content-sidebar-wrap {
+        @include grid-column($total-columns);
     }
 
-    .full-width-content &.site-inner > .wrap {
-        @include grid-row(nest-collapse);
+    .content {
+        @include grid-column((2/3) * $total-columns, $float:false);
+    }
+
+    .sidebar {
+        @include grid-column((1/3) * $total-columns, $float:false);
+    }
+}
+
+.content-sidebar {
+    .content {
+        float: $default-float;
+    }
+
+    .sidebar {
+        float: $opposite-direction;
+    }
+}
+
+.sidebar-content {
+    .content {
+        float: $opposite-direction;
+    }
+
+    .sidebar {
+        float: $default-float;
+    }
+}
+
+.content-sidebar-sidebar,
+.sidebar-content-sidebar,
+.sidebar-sidebar-content {
+    .content-sidebar-wrap {
+        @include grid-column((4/5) * $total-columns);
+
+        .content {
+            @include grid-column((4/5) * $total-columns);
+        }
+
+        .sidebar {
+            @include grid-column((1/5) * $total-columns);
+        }
+    }
+
+    .sidebar {
+        @include grid-column((1/5) * $total-columns);
+    }
+
+}
+
+.content-sidebar-sidebar {
+    .content-sidebar-wrap {
+        float: $default-float;
+
+        .content {
+            float: $default-float;
+        }
+
+        .sidebar {
+            float: $opposite-direction;
+        }
+    }
+
+    .sidebar {
+        float: $opposite-direction;
+    }
+}
+
+.sidebar-content-sidebar {
+    .content-sidebar-wrap {
+        float: $opposite-direction;
+
+        .content {
+            float: $default-float;
+        }
+
+        .sidebar {
+            float: $opposite-direction;
+        }
+    }
+
+    .sidebar {
+        float: $default-float;
+    }
+}
+
+.sidebar-sidebar-content {
+    .content-sidebar-wrap {
+        float: $opposite-direction;
+
+        .content {
+            float: $opposite-direction;
+        }
+
+        .sidebar {
+            float: $default-float;
+        }
+    }
+
+    .sidebar {
+        float: $default-float;
     }
 }
