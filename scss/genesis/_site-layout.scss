@@ -1,7 +1,5 @@
 $fluid-static-grid: true !default;
 
-@import "../../../foundation/scss/foundation";
-
 .site-container > * {
     & > .wrap {
         @include grid-row();
@@ -33,13 +31,109 @@ $fluid-static-grid: true !default;
             }
         }
 
+        .row,
         .wrap {
             @include grid-row(nest);
+
+            &.collapse {
+                @include grid-row(nest-collapse);
+            }
+        }
+
+        .vc_row, .wpb_row {
+            & > .row, & > .wrap {
+                @include grid-row();
+
+                @if $fluid-static-grid {
+                    @media #{$small-up} {
+                        max-width: none;
+                        margin: 0 auto;
+                    }
+
+                    @media #{$medium-up} {
+                        max-width: lower-bound($medium-range);
+                        margin: 0 auto;
+                    }
+
+                    @media #{$large-up} {
+                        max-width: lower-bound($large-range);
+                        margin: 0 auto;
+                    }
+
+                    @media #{$xlarge-up} {
+                        max-width: lower-bound($xlarge-range);
+                        margin: 0 auto;
+                    }
+
+                    @media #{$xxlarge-up} {
+                        max-width: lower-bound($xxlarge-range);
+                        margin: 0 auto;
+                    }
+                }
+            }
+
+            &.collapse {
+                & > .row, & > .wrap {
+                    @include grid-row(nest-collapse);
+                }
+            }
+        }
+
+        .flex-video, .vc_row, .wpb_row, .wpb_content_element {
+            margin-bottom: 0;
+        }
+
+        .minus-gutter {
+            margin-left: (-($column-gutter / 2));
+            margin-right: (-($column-gutter / 2));
+        }
+    }
+}
+
+.full-width-content {
+
+    .site-inner > .wrap {
+        max-width: none;
+    }
+
+    .content > .loop > .entry > .wrap > .entry-header {
+        @include grid-row();
+        float: none;
+
+        @if $fluid-static-grid {
+            @media #{$small-up} {
+                max-width: none;
+                margin: 0 auto;
+            }
+
+            @media #{$medium-up} {
+                max-width: lower-bound($medium-range);
+                margin: 0 auto;
+            }
+
+            @media #{$large-up} {
+                max-width: lower-bound($large-range);
+                margin: 0 auto;
+            }
+
+            @media #{$xlarge-up} {
+                max-width: lower-bound($xlarge-range);
+                margin: 0 auto;
+            }
+
+            @media #{$xxlarge-up} {
+                max-width: lower-bound($xxlarge-range);
+                margin: 0 auto;
+            }
         }
     }
 
-    .wrap > * {
-        @include grid-column($total-columns);
+    .content-sidebar-wrap {
+        @include grid-column($total-columns, $collapse:false);
+    }
+
+    .content {
+        @include grid-column($total-columns, $collapse:false, $float:false);
     }
 }
 
