@@ -1,0 +1,27 @@
+$title-area-columns: (4/12) * $total-columns !default;
+$header-right-columns: $total-columns - $title-area-columns !default;
+$header-alignment: middle !default;
+
+.title-area {
+    @include grid-column($title-area-columns);
+}
+
+.header-widget-area {
+    @include grid-column($header-right-columns, $collapse:true, $last-column:true, $float:false);
+}
+
+.site-title {
+    @extend h1;
+}
+
+.site-description {
+    @extend h4;
+
+    line-height: $subheader-line-height;
+    color: $subheader-font-color;
+    font-weight: $subheader-font-weight;
+    margin-top: $subheader-top-margin;
+    margin-bottom: $subheader-bottom-margin;
+}
+
+
