@@ -1,0 +1,82 @@
+/* =WordPress Core
+-------------------------------------------------------------- */
+.alignnone {
+    margin: (column-gutter/2) $column-gutter column-gutter 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: (column-gutter/2) auto (column-gutter/2) auto;
+}
+
+.alignright {
+    float:right;
+    margin: (column-gutter/2) 0 column-gutter $column-gutter;
+}
+
+.alignleft {
+    float: left;
+    margin: (column-gutter/2) $column-gutter column-gutter 0;
+}
+
+.aligncenter {
+    display: block;
+    margin: (column-gutter/2) auto (column-gutter/2) auto;
+}
+
+a img.alignright {
+    float: right;
+    margin: (column-gutter/2) 0 column-gutter $column-gutter;
+}
+
+a img.alignnone {
+    margin: (column-gutter/2) $column-gutter column-gutter 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: (column-gutter/2) $column-gutter column-gutter 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: (column-gutter/2) 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: (column-gutter/2) $column-gutter column-gutter 0;
+}
+
+.wp-caption.alignleft {
+    margin: (column-gutter/2) $column-gutter column-gutter 0;
+}
+
+.wp-caption.alignright {
+    margin: (column-gutter/2) 0 column-gutter $column-gutter ;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    @extend small;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 half($column-gutter) (column-gutter/2);
+}
