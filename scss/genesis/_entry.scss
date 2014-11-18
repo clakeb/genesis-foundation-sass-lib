@@ -1,0 +1,16 @@
+.entry {
+    @include grid-column($total-columns);
+
+    & > .wrap > * {
+        @include grid-column($total-columns);
+    }
+}
+
+.entry-thumbnail-wrap {
+    text-align: center;
+
+    .entry-thumbnail-link {
+        display: block;
+    }
+}
+
