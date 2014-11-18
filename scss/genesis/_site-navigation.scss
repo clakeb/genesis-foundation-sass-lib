@@ -1,0 +1,24 @@
+$nav-direction: $default-float !default;
+
+.menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.genesis-nav-menu {
+    float: $nav-direction;
+    text-align: $nav-direction;
+
+    .menu-item {
+        display: inline-block;
+
+        a {
+            display: block;
+            padding-top: $button-sml;
+            padding-#{$opposite-direction}: $button-sml * 2;
+            padding-bottom: $button-sml + rem-calc(1);
+            padding-#{$default-float}: $button-sml * 2;
+        }
+    }
+}
