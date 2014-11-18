@@ -1,0 +1,11 @@
+.widget {
+    @include grid-column($total-columns);
+
+    .widget-wrap {
+        @include grid-row(nest);
+
+        & > * {
+            @include grid-column($total-columns);
+        }
+    }
+}
