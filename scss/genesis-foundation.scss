@@ -1,11 +1,9 @@
-$include-html-classes: false;
-
-@import "genesis/wordpress";
-@import "genesis/site-layout";
-@import "genesis/site-header";
-@import "genesis/site-navigation";
-@import "genesis/site-inner";
-@import "genesis/footer-widgets";
-@import "genesis/site-footer";
-@import "genesis/entry";
-@import "genesis/widgets";
+@import "./genesis/wordpress";
+@import "./genesis/site-layout";
+@import "./genesis/site-header";
+@import "./genesis/site-navigation";
+@import "./genesis/site-inner";
+@import "./genesis/footer-widgets";
+@import "./genesis/site-footer";
+@import "./genesis/entry";
+@import "./genesis/widgets";
