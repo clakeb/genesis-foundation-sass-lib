@@ -152,3 +152,31 @@ $fluid-static-grid: true !default;
         float: $default-float;
     }
 }
+
+.gap {
+    @include clearfix;
+    display: block;
+    width: 100%;
+    height: 1px;
+
+    @for $i from 1 through 5 {
+        &.small-#{$i} {
+            @media #{$small-up} {
+                padding-top: $i * half($column-gutter);
+                padding-bottom: $i * half($column-gutter);
+            }
+        }
+        &.medium-#{$i} {
+            @media #{$medium-up} {
+                padding-top: $i * half($column-gutter);
+                padding-bottom: $i * half($column-gutter);
+            }
+        }
+        &.large-#{$i} {
+            @media #{$large-up} {
+                padding-top: $i * half($column-gutter);
+                padding-bottom: $i * half($column-gutter);
+            }
+        }
+    }
+}
