@@ -1,8 +1,15 @@
+@import "../../foundation/scss/foundation/components/grid";
+
+
 @for $x from 1 through 12 {
     body.footer-widgets-#{$x} {
         @for $y from 1 through $x {
             .footer-widgets-#{$y} {
-                @include grid-column( (1/$x) * $total-columns );
+                @include grid-column($total-columns);
+
+                @media #{$medium-up} {
+                    @include grid-column((1/$x) * $total-columns);
+                }
             }
         }
     }

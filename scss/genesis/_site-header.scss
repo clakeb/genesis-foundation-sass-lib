@@ -1,17 +1,32 @@
+@import "../../foundation/scss/foundation/components/grid";
+
 $title-area-columns: (4/12) * $total-columns !default;
 $header-right-columns: $total-columns - $title-area-columns !default;
 $header-alignment: middle !default;
 
 .title-area {
-    @include grid-column($title-area-columns);
+    @include grid-column($total-columns);
+
+    @media #{$medium-up} {
+        @include grid-column($title-area-columns);
+    }
 }
 
 .header-widget-area {
-    @include grid-column($header-right-columns, $collapse:true, $last-column:true, $float:false);
+    @include grid-column($total-columns, $collapse:false, $last-column:true, $float:false);
+
+    @media #{$medium-up} {
+        @include grid-column($header-right-columns, $collapse:false, $last-column:true, $float:false);
+    }
+
+    .genesis-nav-menu {
+        padding: 0;
+    }
 }
 
 .site-title {
     @extend h1;
+    margin-top: 0;
 }
 
 .site-description {

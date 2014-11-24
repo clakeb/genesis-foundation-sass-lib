@@ -1,0 +1,15 @@
+.site-header > .wrap,
+.footer-widgets > .wrap,
+.content-sidebar-wrap > .wrap,
+[class^="block-grid-"], [class*="block-grid-"],
+[class^="entry-block-grid-"], [class*="entry-block-grid-"] {
+    @media #{$medium-up} {
+        display: table;
+
+        & > * {
+            display: table-cell;
+            vertical-align: top;
+            float: none !important;
+        }
+    }
+}

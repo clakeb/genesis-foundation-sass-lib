@@ -1,3 +1,5 @@
+@import "../../foundation/scss/foundation/components/grid";
+
 $nav-direction: $default-float !default;
 
 .menu {
@@ -7,11 +9,15 @@ $nav-direction: $default-float !default;
 }
 
 .genesis-nav-menu {
-    float: $nav-direction;
+    @include grid-column($total-columns, $float:$nav-direction);
     text-align: $nav-direction;
 
     .menu-item {
-        display: inline-block;
+        display: block;
+
+        @media #{$medium-up} {
+            display: inline-block;
+        }
 
         a {
             display: block;

@@ -1,3 +1,5 @@
+@import "../../foundation/scss/foundation/components/grid";
+
 .widget {
     @include grid-column($total-columns);
 
@@ -8,4 +10,8 @@
             @include grid-column($total-columns);
         }
     }
+}
+
+.widget-title {
+    margin-top: 0;
 }
